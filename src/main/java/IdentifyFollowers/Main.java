@@ -16,7 +16,7 @@ public class Main {
         for (String url : arrayUrl) {
 
             Thread thread = new Thread(new ThreadToSave(url,count));
-            thread.setName("t"+count);
+            thread.setName("threat"+count);
             thread.start();
 
             count++;
