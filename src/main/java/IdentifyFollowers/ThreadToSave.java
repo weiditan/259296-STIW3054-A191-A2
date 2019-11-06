@@ -1,4 +1,5 @@
 package IdentifyFollowers;
+import ExcelFunction.SaveToExcel;
 
 public class ThreadToSave implements Runnable{
 
@@ -18,8 +19,7 @@ public class ThreadToSave implements Runnable{
 
             System.out.println(Thread.currentThread().getName() + " " + count);
 
-            ExcelFunction excelFunction = new ExcelFunction();
-            excelFunction.addData(count, urlData);
+            SaveToExcel.addData(count, urlData);
 
             System.out.println(Thread.currentThread().getName() + " login id : " + urlData[0]);
         }

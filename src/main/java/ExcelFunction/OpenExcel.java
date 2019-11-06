@@ -3,11 +3,13 @@ package ExcelFunction;
 import java.awt.*;
 import java.io.File;
 
-public class OpenExcel {
+class OpenExcel {
 
-    public static void open(){
+    static void open(){
 
+        //Read excel data
         ExcelData excelData = new ExcelData();
+
         File excelFile = new File(excelData.fileName);
         Desktop desktop = Desktop.getDesktop();
 

@@ -1,5 +1,5 @@
 package IdentifyFollowers;
-import ExcelFunction.*;
+import ExcelFunction.excelFunction;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,6 @@ public class Main {
     public static void main(String[] args){
 
         System.out.println("Creating Excel file...");
-        ExcelFunction excelFunction = new ExcelFunction();
         excelFunction.createExcel();
         System.out.println("Excel File has been created successfully !");
 
@@ -26,8 +25,6 @@ public class Main {
 
             count++;
         }
-
-        //OpenExcel.open();
 
 
     }
