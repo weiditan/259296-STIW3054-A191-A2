@@ -9,6 +9,10 @@ public class excelFunction {
         SaveToExcel.addData(data);
     }
 
+    public static void readData(){
+        ReadExcelData.readData();
+    }
+
     public static void open(){
         OpenExcel.open();
     }

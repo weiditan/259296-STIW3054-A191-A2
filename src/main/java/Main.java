@@ -5,10 +5,9 @@ import java.util.ArrayList;
 
 public class Main {
 
-    static int totalFollowers = 0, done = 0;
+    private static int totalFollowers = 0, done = 0;
 
     public static void main(String[] args){
-
 
         // Create Excel
         System.out.println("Creating Excel file...");
@@ -29,8 +28,6 @@ public class Main {
 
         int count = 1;
         for (String url : arrayUrl) {
-
-            //Thread thread = new Thread(new ThreadToSave(url,count));
 
             int finalCount = count;
             Thread thread = new Thread(() -> {
@@ -63,14 +60,11 @@ public class Main {
 
             if(done==totalFollowers){
 
+                excelFunction.readData();
                 excelFunction.open();
                 excelFunction.open();
                 break;
             }
-
         }
-
-
-
     }
 }
