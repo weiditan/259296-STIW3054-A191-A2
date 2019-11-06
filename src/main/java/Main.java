@@ -59,7 +59,6 @@ public class Main {
             }
 
             if(done==totalFollowers){
-
                 excelFunction.readData();
                 excelFunction.open();
                 excelFunction.open();
