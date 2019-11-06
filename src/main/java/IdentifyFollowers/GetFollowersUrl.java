@@ -18,7 +18,7 @@ public class GetFollowersUrl {
 
         while (true){
             try {
-                final Document document = Jsoup.connect(url + "?page="+page+"&"+myData.token).ignoreContentType(true).get();
+                final Document document = Jsoup.connect(url + myData.token +"&page="+page).ignoreContentType(true).get();
 
                 //Check next page
                 if(document.text().equals("[ ]")){

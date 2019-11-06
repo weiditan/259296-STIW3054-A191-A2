@@ -1,6 +1,6 @@
 package ExcelFunction;
 
-class ExcelData {
+class Data {
 
     // Excel File Name
     String fileName = "FollowersData.xlsx";

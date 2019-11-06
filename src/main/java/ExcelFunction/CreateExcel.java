@@ -9,12 +9,12 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
-class CreateExcel {
+class CreateExcel{
 
     static void createExcel(){
 
         //Read excel data
-        ExcelData excelData = new ExcelData();
+        Data excelData = new Data();
 
         XSSFWorkbook wb = new XSSFWorkbook();
 
@@ -49,6 +49,9 @@ class CreateExcel {
         // An output stream accepts output bytes and sends them to sink.
         try (OutputStream fileOut = new FileOutputStream(excelData.fileName)) {
             wb.write(fileOut);
+            // Close fileOut and workbook
+            fileOut.close();
+            wb.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

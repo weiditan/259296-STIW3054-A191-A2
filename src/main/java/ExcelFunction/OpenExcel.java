@@ -8,7 +8,7 @@ class OpenExcel {
     static void open(){
 
         //Read excel data
-        ExcelData excelData = new ExcelData();
+        Data excelData = new Data();
 
         File excelFile = new File(excelData.fileName);
         Desktop desktop = Desktop.getDesktop();

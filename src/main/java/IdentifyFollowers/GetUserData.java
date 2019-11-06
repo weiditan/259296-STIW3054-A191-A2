@@ -16,7 +16,7 @@ public class GetUserData {
 
         while (true) {
             try {
-                final Document document = Jsoup.connect(url + "?" + myData.token).ignoreContentType(true).get();
+                final Document document = Jsoup.connect(url + myData.token).ignoreContentType(true).get();
 
                 //Get login id
                 Pattern loginId = Pattern.compile("(\"login\": \")(.*)(\", \"id\":)");
