@@ -12,12 +12,16 @@ public class ThreadToSave implements Runnable{
 
     @Override
     public void run() {
-        String[] urlData = GetUserData.GetData(url);
-        System.out.println(Thread.currentThread().getName()+" "+count);
-        System.out.println(Thread.currentThread().getName()+" login id : "+urlData[0]);
-        System.out.println(Thread.currentThread().getName()+" number of repositories : "+urlData[1]);
-        System.out.println(Thread.currentThread().getName()+" number of followers : "+urlData[2]);
-        System.out.println(Thread.currentThread().getName()+" number of following : "+urlData[3]);
-        System.out.println(Thread.currentThread().getName()+" date created : "+urlData[4]);
+
+        synchronized (ThreadToSave.class) {
+            String[] urlData = GetUserData.GetData(url);
+
+            System.out.println(Thread.currentThread().getName() + " " + count);
+
+            ExcelFunction excelFunction = new ExcelFunction();
+            excelFunction.addData(count, urlData);
+
+            System.out.println(Thread.currentThread().getName() + " login id : " + urlData[0]);
+        }
     }
 }

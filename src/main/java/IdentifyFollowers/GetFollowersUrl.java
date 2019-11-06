@@ -10,13 +10,15 @@ import java.util.regex.Pattern;
 public class GetFollowersUrl {
     public static ArrayList<String> followersUrl(String url){
 
+        Data myData = new Data();
+
         ArrayList<String> arrayUrl = new ArrayList<>();
 
         int page = 1;
 
         while (true){
             try {
-                final Document document = Jsoup.connect(url + "?page="+page).ignoreContentType(true).get();
+                final Document document = Jsoup.connect(url + "?page="+page+"&"+myData.token).ignoreContentType(true).get();
 
                 //Check next page
                 if(document.text().equals("[ ]")){
