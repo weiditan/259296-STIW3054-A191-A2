@@ -11,6 +11,16 @@ TAN WEI DI
 259296
 
 ## Introduction  
+This system is using MAVEN and JAVA programming language. This system used JSOUP to get data from https://api.github.com to identify zhamri's GitHub followers.
+
+After that, the system will analyze each of the followers and save to EXCEL file using thread with the following statistics:
+1. Login ID
+1. Number Of Repositories
+1. Number Of Followers
+1. Number Of Following
+1. Date Created
+
+At last, the system will output the "List Of Followers" and open the EXCEL file. 
 
 ## Result/Output  
 
