@@ -37,7 +37,6 @@ class GetFollowersUrl extends Data{
                 page++;
 
             } catch (Exception e) {
-                e.printStackTrace();
                 break;
             }
         }

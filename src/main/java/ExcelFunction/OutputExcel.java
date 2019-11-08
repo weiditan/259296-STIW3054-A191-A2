@@ -1,6 +1,7 @@
 package ExcelFunction;
 
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.OutputStream;
 
 class OutputExcel extends Data{
@@ -11,14 +12,23 @@ class OutputExcel extends Data{
             sheet.autoSizeColumn(i);
         }
 
-        // An output stream accepts output bytes and sends them to sink.
-        try (OutputStream fileOut = new FileOutputStream(fileName)) {
-            workbook.write(fileOut);
-            // Close fileOut and workbook
-            fileOut.close();
-            workbook.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+        while (true) {
+            // An output stream accepts output bytes and sends them to sink.
+            try (OutputStream fileOut = new FileOutputStream(fileName)) {
+                workbook.write(fileOut);
+                // Close fileOut and workbook
+                fileOut.close();
+                workbook.close();
+                break;
+
+            } catch (Exception e) {
+                System.out.println("Failed to create/save the Excel file !");
+                System.out.println("Press Enter to retry...");
+                try {
+                    System.in.read();
+                } catch (IOException ignored) { }
+
+            }
         }
     }
 }

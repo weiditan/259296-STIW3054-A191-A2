@@ -17,7 +17,7 @@ public class Main {
         System.out.println("\nChecking total followers...");
 
         // Get followers url for the link
-        String[] userData = identifyFollowers.GetData("https://api.github.com/users/weiditan");
+        String[] userData = identifyFollowers.GetData("https://api.github.com/users/zhamri");
         ArrayList<String> arrayUrl = identifyFollowers.followersUrl(userData[5]);
 
         System.out.println("Total followers is "+arrayUrl.size()+".");
@@ -66,7 +66,6 @@ public class Main {
 
             if(done==totalFollowers){
                 excelFunction.readData();
-                excelFunction.open();
                 excelFunction.open();
                 break;
             }
