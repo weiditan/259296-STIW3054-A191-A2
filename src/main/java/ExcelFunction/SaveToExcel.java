@@ -1,27 +1,21 @@
 package ExcelFunction;
 
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
 
-class SaveToExcel{
+class SaveToExcel extends Data{
 
     static void addData(String[] data){
 
-        //Read excel data
-        Data excelData = new Data();
-
         try {
-            FileInputStream file = new FileInputStream(excelData.fileName);
+            FileInputStream file = new FileInputStream(fileName);
 
-            XSSFWorkbook wb = new XSSFWorkbook(file);
+            workbook = new XSSFWorkbook(file);
 
             //ReadSheets
-            XSSFSheet sheet = wb.getSheet(excelData.sheetName);
+            sheet = workbook.getSheet(sheetName);
 
             Row row = sheet.createRow(Integer.parseInt(data[0]));
 
@@ -30,20 +24,7 @@ class SaveToExcel{
             }
 
             //Save the Excel file
-            //Auto resize
-            for(int i=0; i < data.length; i++) {
-                sheet.autoSizeColumn(i);
-            }
-
-            // An output stream accepts output bytes and sends them to sink.
-            try (OutputStream fileOut = new FileOutputStream(excelData.fileName)) {
-                wb.write(fileOut);
-                // Close fileOut and workbook
-                fileOut.close();
-                wb.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            OutputExcel.output();
 
         } catch (Exception e) {
             e.printStackTrace();

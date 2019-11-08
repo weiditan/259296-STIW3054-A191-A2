@@ -7,10 +7,8 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class GetFollowersUrl {
-    public static ArrayList<String> followersUrl(String url){
-
-        Data myData = new Data();
+class GetFollowersUrl extends Data{
+    static ArrayList<String> followersUrl(String url){
 
         ArrayList<String> arrayUrl = new ArrayList<>();
 
@@ -18,7 +16,7 @@ public class GetFollowersUrl {
 
         while (true){
             try {
-                final Document document = Jsoup.connect(url + myData.token +"&page="+page).ignoreContentType(true).get();
+                final Document document = Jsoup.connect(url + token +"&page="+page).ignoreContentType(true).get();
 
                 //Check next page
                 if(document.text().equals("[ ]")){

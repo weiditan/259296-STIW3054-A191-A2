@@ -6,17 +6,15 @@ import org.jsoup.nodes.Document;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class GetUserData {
+class GetUserData extends Data{
 
-    public static String[] GetData(String url){
-
-        Data myData = new Data();
+    static String[] GetData(String url){
 
         String[] userData = new String[6];
 
         while (true) {
             try {
-                final Document document = Jsoup.connect(url + myData.token).ignoreContentType(true).get();
+                final Document document = Jsoup.connect(url + token).ignoreContentType(true).get();
 
                 //Get login id
                 Pattern loginId = Pattern.compile("(\"login\": \")(.*)(\", \"id\":)");

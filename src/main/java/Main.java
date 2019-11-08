@@ -1,4 +1,4 @@
-import IdentifyFollowers.*;
+import IdentifyFollowers.identifyFollowers;
 import ExcelFunction.excelFunction;
 
 import java.util.ArrayList;
@@ -17,12 +17,12 @@ public class Main {
         System.out.println("\nChecking total followers...");
 
         // Get followers url for the link
-        String[] userData = GetUserData.GetData("https://api.github.com/users/zhamri");
-        ArrayList<String> arrayUrl = GetFollowersUrl.followersUrl(userData[5]);
+        String[] userData = identifyFollowers.GetData("https://api.github.com/users/weiditan");
+        ArrayList<String> arrayUrl = identifyFollowers.followersUrl(userData[5]);
 
-        System.out.println("Total followers is "+arrayUrl.size()+" !");
+        System.out.println("Total followers is "+arrayUrl.size()+".");
 
-        System.out.println("Downloading followers data ...");
+        System.out.println("\nDownloading followers data ...");
 
         totalFollowers = arrayUrl.size();
 
@@ -31,17 +31,23 @@ public class Main {
 
             int finalCount = count;
             Thread thread = new Thread(() -> {
-                synchronized (Main.class) {
+
                     //Get url data
-                    String[] urlData = GetUserData.GetData(url);
+                    String[] urlData = identifyFollowers.GetData(url);
 
                     //Save to new array
                     String[] data = {String.valueOf(finalCount), urlData[0], urlData[1], urlData[2], urlData[3], urlData[4]};
+
+                synchronized (Main.class) {
                     //Save to excel
                     excelFunction.addData(data);
 
                     done++;
-                    System.out.println(done + "/" + totalFollowers+" "+Thread.currentThread().getName()+" Download Completed !");
+
+                    System.out.format("%-10s %-15s %-20s\n",
+                            done + "/" + totalFollowers,
+                            Thread.currentThread().getName(),
+                            "Download Completed !");
                 }
             });
 

@@ -9,19 +9,16 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 
-class ReadExcelData{
+class ReadExcelData extends Data{
     static void readData() {
 
-        //Read excel data
-        Data excelData = new Data();
-
         try {
-            FileInputStream file = new FileInputStream(excelData.fileName);
+            FileInputStream file = new FileInputStream(fileName);
 
             XSSFWorkbook wb = new XSSFWorkbook(file);
 
             //ReadSheets
-            XSSFSheet sheet = wb.getSheet(excelData.sheetName);
+            XSSFSheet sheet = wb.getSheet(sheetName);
 
             System.out.println("\n\nList Of Followers");
 

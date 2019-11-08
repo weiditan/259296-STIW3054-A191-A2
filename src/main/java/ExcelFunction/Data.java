@@ -1,14 +1,21 @@
 package ExcelFunction;
 
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 class Data {
 
+    // Excel workbook and sheet
+    static XSSFWorkbook workbook;
+    static XSSFSheet sheet;
+
     // Excel File Name
-    String fileName = "FollowersData.xlsx";
+    static String fileName = "FollowersData.xlsx";
 
     // Excel SheetName
-    String sheetName = "FollowersData";
+    static String sheetName = "FollowersData";
 
     // Excel Header
-    String[] title = {"No", "Login ID", "Number Of Repositories", "Number Of Followers", "Number Of Following", "Date Created"};
+    static String[] title = {"No", "Login ID", "Number Of Repositories", "Number Of Followers", "Number Of Following", "Date Created"};
 
 }
