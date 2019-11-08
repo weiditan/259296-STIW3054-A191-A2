@@ -1,4 +1,4 @@
-package IdentifyFollowers;
+package com.STIW3054.A191.IdentifyFollowers;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
