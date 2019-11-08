@@ -49,6 +49,7 @@ At last, the system will output the "List Of Followers" and open the EXCEL file.
 
 <br><br>
 ## UML Class Diagram  
+![alt text](https://github.com/weiditan/259296-STIW3054-A191-A2/blob/master/ClassDiagram/ClassDiagram.gif "ClassDiagram")
 
 
 <br><br>
